@@ -65,37 +65,6 @@ def main():
 	pyplot.xscale('log')
 	pyplot.yscale('log')
 	pyplot.show()
-	# pmf = thinkstats2.MakePmfFromList(listOfInstances)
-	# cdf = thinkstats2.MakeCdfFromList(listOfInstances)
-
-	# pdf = thinkstats2.EstimatedPdf(listOfInstances)
-	# low, high = min(listOfInstances), max(listOfInstances)
-	# xs = numpy.linspace(low, high, 101)
-	# kde_pmf = pdf.MakePmf(xs)
-
-	# bin_data = BinData(listOfInstances, low, high, 51)
-	# bin_pmf = thinkstats2.MakePmfFromList(bin_data)
-
-	# thinkplot.SubPlot(2, 2, 1)
-	# thinkplot.Hist(pmf, width=0.1)
-	# thinkplot.Config(title='Naive Pmf')
-
-	# thinkplot.SubPlot(2, 2, 2)
-	# thinkplot.Hist(bin_pmf)
-	# thinkplot.Config(title='Binned Hist')
-
-	# thinkplot.SubPlot(2, 2, 3)
-	# thinkplot.Pmf(kde_pmf)
-	# thinkplot.Config(title='KDE PDF')
-
-	# thinkplot.SubPlot(2, 2, 4)
-	# thinkplot.Cdf(cdf)
-	# thinkplot.Config(title='CDF')
-
-	# thinkplot.Show()
-
-	# calcTotalPercent(theData)
-	# calcTotalInstances(theData)
 
 if __name__ == '__main__':
     main()
