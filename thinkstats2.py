@@ -367,6 +367,9 @@ class Hist(_DictWrapper):
         for val, freq in other.Items():
             self.Incr(val, -freq)
 
+    def Normalize(self, *a,**kw):
+        pass
+
 
 class Pmf(_DictWrapper):
     """Represents a probability mass function.
