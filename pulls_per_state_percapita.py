@@ -17,24 +17,24 @@ m = Basemap(llcrnrlon=-119, llcrnrlat=22, urcrnrlon=-64, urcrnrlat=49,
 # m.drawlsmask(land_color='coral',ocean_color='aqua',lakes=True)
 shp_info = m.readshapefile('st99_d00', 'states', drawbounds=True)
 
-state_populations = {'California': 38332521, 'Texas': 26448193,
-'New York': 19651127, 'Florida': 19552860, 'Illinois': 12882135,
-'Pennsylvania': 12773801, 'Ohio': 11570808, 'Georgia': 9992167,
-'Michigan': 9895622, 'North Carolina': 9848060, 'New Jersey': 8899339,
-'Virginia': 8260405, 'Washington': 6971406, 'Massachusetts': 6692824,
-'Arizona': 6626624, 'Indiana': 6570902, 'Tennessee': 6495978,
-'Missouri': 6044171, 'Maryland': 5928814, 'Wisconsin': 5742713,
-'Minnesota': 5420380, 'Colorado': 5268367, 'Alabama': 4833722,
-'South Carolina': 4774839, 'Louisiana': 4625470, 'Kentucky': 4395295,
-'Oregon': 3930065, 'Oklahoma': 3850568, 'Puerto Rico': 3615086,
-'Connecticut': 3596080, 'Iowa': 3090416, 'Mississippi': 2991207,
-'Arkansas': 2959373, 'Utah': 2900872, 'Kansas': 2893957,
-'Nevada': 2790136, 'New Mexico': 2085287, 'Nebraska': 1868516,
-'West Virginia': 1854304, 'Idaho': 1612136, 'Hawaii': 1404054,
-'Maine': 1328302, 'New Hampshire': 1323459, 'Rhode Island': 1051511,
-'Montana': 1015165, 'Delaware': 925749, 'South Dakota': 844877,
-'Alaska': 735132, 'North Dakota': 723393, 'District of Columbia': 646449,
-'Vermont': 626630, 'Wyoming': 582658}
+state_populations = {'california': 38332521, 'texas': 26448193,
+'new york': 19651127, 'florida': 19552860, 'illinois': 12882135,
+'pennsylvania': 12773801, 'ohio': 11570808, 'georgia': 9992167,
+'michigan': 9895622, 'north carolina': 9848060, 'new jersey': 8899339,
+'virginia': 8260405, 'washington': 6971406, 'massachusetts': 6692824,
+'arizona': 6626624, 'indiana': 6570902, 'tennessee': 6495978,
+'missouri': 6044171, 'maryland': 5928814, 'wisconsin': 5742713,
+'minnesota': 5420380, 'colorado': 5268367, 'alabama': 4833722,
+'south carolina': 4774839, 'louisiana': 4625470, 'kentucky': 4395295,
+'oregon': 3930065, 'oklahoma': 3850568, 'puerto rico': 3615086,
+'connecticut': 3596080, 'iowa': 3090416, 'mississippi': 2991207,
+'arkansas': 2959373, 'utah': 2900872, 'kansas': 2893957,
+'nevada': 2790136, 'new mexico': 2085287, 'nebraska': 1868516,
+'west virginia': 1854304, 'idaho': 1612136, 'hawaii': 1404054,
+'maine': 1328302, 'new hampshire': 1323459, 'rhode island': 1051511,
+'montana': 1015165, 'delaware': 925749, 'south dakota': 844877,
+'alaska': 735132, 'north dakota': 723393, 'district of columbia': 646449,
+'vermont': 626630, 'wyoming': 582658}
 
 with open('../data/CY2013Registrants.csv', 'r') as fd:
 	registrant_list = list(apidata.read_csv(fd, 'Registrant'))
@@ -64,6 +64,9 @@ with open('../data/CY2013CodePulls.csv', 'r') as fd:
 				state_pulls[state] += 1
 		total_pulls += 1
 
+for state in state_pulls:
+	state_pulls[state] /= float(state_populations[state])
+
 minp, maxp = min(state_pulls.values()), max(state_pulls.values())
 
 print('%d total pulls' % (total_pulls, ))
@@ -71,7 +74,7 @@ print('%d unknown registrants' % (len(unknown),))
 print('%d unknown state names (%d pulls)' % (len(unknown_state), u_pulls))
 print('(min, max) = (%d, %d)' % (minp, maxp))
 
-cmap = pyplot.get_cmap('Greys_r')
+cmap = pyplot.get_cmap('Greens')
 ax = pyplot.gca()
 for i, sd in enumerate(m.states_info):
 	state = sd['NAME'].lower()
@@ -86,5 +89,5 @@ m.drawmeridians(numpy.arange(-120,-40,20),labels=[0,0,0,1])
 cax = cm.ScalarMappable(cmap=cmap)
 cax.set_array(state_pulls.values())
 pyplot.colorbar(cax)
-pyplot.title('Code Pulls per State for CY2013')
+pyplot.title('Code Pulls per Capita for CY2013')
 pyplot.show()
