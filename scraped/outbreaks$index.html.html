@@ -1,0 +1,89 @@
+<!DOCTYPE html><body>
+<div class="syndicate">
+
+	<div class="rx-row">
+    	          <p>Infectious disease outbreaks currently being reported on by CDC. Listings include those outbreaks for which content is currently published on the CDC website.</p>    		</div>
+  </div>
+<div class="syndicate">
+
+		    <div class="module bulleted-links">
+      <div class="inner">		
+		<h3>U.S.-Based Outbreaks</h3>
+		<div class="subColumns">
+		  <div class="subc">
+        	              <div id="rss-outbreaksUS">Â  <script language="javascript" type="text/javascript" xml:space="preserve">
+    <!--//
+            $.getJSON("http://www2c.cdc.gov/podcasts/feed.asp?feedid=513&format=json&callback=?",
+             function (data) {
+                                        var count_items = 0
+                                                                      var list = $('<ul />');
+                                                $('#rss-outbreaksUS').append(list);
+                                                $.each(data.entries, function (i, entry) {
+                                                                                             
+                                                                                             if (count_items < 6) {
+                                                            var newItem = $('<li />');
+                                                            var a = $('<a class="item-title" />').html(entry.title);
+                                                            a.attr("href", entry.link);
+                                                            newItem.append(a);
+                                                            var d = new Date();
+                                                            if (isNaN(Date.parse(entry.pubdate))) {
+                                                                        d.setTime(Date.parse(entry.pubdate.substr(5, 2) + '/' + entry.pubdate.substr(8, 2) + '/' + entry.pubdate.substr(0, 4) + ' ' +
+                                                                                    entry.pubdate.substr(11, 5)));
+                                                            } else {
+                                                                        d.setTime(Date.parse(entry.pubdate));
+                                                            }
+                                                            newItem.append($('<span class="item-pubdate" />').html(d.toLocaleDateString ()));
+                                                            /*newItem.append($('<span class="item-description" />').html(entry.description));*/
+                                                            list.append(newItem);
+                                                                                                      count_items = count_items + 1 
+                                                                                             }//end if greater than 6
+                });
+            });
+//-->
+    </script> Â </div><p>Recent investigations reported on CDC.gov</p>        						  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+<div class="syndicate">
+
+		    <div class="module bulleted-links">
+      <div class="inner">		
+		<h3>Outbreaks Affecting International Travelers</h3>
+		<div class="subColumns">
+		  <div class="subc">
+        	              <p>Please see the <a href="http://wwwnc.cdc.gov/travel">Travelers' Health site</a> for a complete list.</p><div id="rss-intlblock"></div>        						  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+<div class="syndicate">
+
+		    <div class="module double-rule bulleted-links">
+      <div class="inner">		
+		<h3>Further Sources for Content about Specific Outbreaks</h3>
+		<div class="subColumns">
+		  <div class="subc">
+        	              <ul><li><a href="http://www.cdc.gov/foodsafety/outbreaks/multistate-outbreaks/outbreaks-list.html">Multistate Foodborne Outbreaks</a> <p>Descriptor text: Foodborne outbreaks listed by year</p></li><li><a href="http://www.bt.cdc.gov/HAN/">Health Alert Network</a> <p>Health alerts, health advisories, updates, and info service messages. Designed for public health and medical communities.</p></li><li><a href="http://www.bt.cdc.gov/recentincidents.asp">Recent Outbreaks and Incidents</a> <p>Events involving the CDC Emergency Operations Center</p></li><li><a href="http://www.cdc.gov/mmwr/mmwr_wk/wk_cvol.html">Morbidity and Mortality Weekly Report</a> <p>Outbreak investigation reports included among other content. Note that outbreak material includes state health department investigations. Designed for public health and medical communities.</p></li></ul>        						  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+<div class="syndicate">
+
+	<div class="rx-row">
+    	          <iframe frameborder="0" height="380" src="http://www.foodsafety.gov/recalls/widget/widget.html" title="Food Safety Widget" width="167">&lt;p&gt;Â &lt;/p&gt;</iframe><br/><br/>    		</div>
+  </div>
+<div class="syndicate">
+
+		    <div class="module rounders bulleted-links">
+      <div class="inner">		
+		<h3>Understanding Outbreaks</h3>
+		<div class="subColumns">
+		  <div class="subc">
+        	              <p>In the last two years, CDC has sent scientists and doctors out more than 750 times to respond to health threats. Learn more below.</p><ul><li><a href="http://www.cdc.gov/outbreaknet/investigations/">How CDC Investigates Foodborne Outbreaks: A Step-By-Step Guide</a></li><li><a href="http://www.cdc.gov/globalhealth/GDDER/optcenter/">Identifying International Outbreaks: Global Disease Detection Operations Center</a></li></ul>        						  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+</body></html>

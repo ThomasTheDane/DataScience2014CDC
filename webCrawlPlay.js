@@ -49,10 +49,8 @@ setInterval(function(){
 	    });
 
 	    //generate string to save
-	    var dif, d = new Date(); // Today's date 
-	    dif = (d.getDay() + 6) % 7; // Number of days to subtract 
+	    var d = new Date(); // Today's date 
 
-	    d = new Date(d - dif * 24*60*60*1000); // Do the subtraction 
 	    var dstr = (d.getMonth() + 1) + '/' + ('00' + d.getDate()).substr(-2);
 
 	    var stringToSave = dstr + " " + (new Date()).getHours() + "h-" + (new Date).getMinutes() + "m " + ": {";
