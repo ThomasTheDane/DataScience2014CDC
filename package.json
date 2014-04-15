@@ -1,0 +1,25 @@
+{
+  "name": "datascience2014cdc",
+  "version": "0.0.0",
+  "description": "Code for data science project for the cdc",
+  "main": "webCrawlPlay.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thomasnat1/datascience2014cdc"
+  },
+  "author": "Thomas Nattestad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thomasnat1/datascience2014cdc/issues"
+  },
+  "homepage": "https://github.com/thomasnat1/datascience2014cdc",
+  "dependencies":{
+    "express":"~3.4.7",
+    "cheerio":"*",
+    "natural":"*",
+    "logfmt":"*"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}
