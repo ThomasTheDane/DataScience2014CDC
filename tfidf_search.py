@@ -4,7 +4,7 @@
 from __future__ import print_function
 
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Comment
 
 import os
 import sys
@@ -14,14 +14,15 @@ import pickle
 def striptext(text):
     words = []
     soup = BeautifulSoup(text, 'html5lib')
-    elems = [elem for elem in soup]
+    elems = [elem for elem in soup.html]
     while elems:
         elem = elems.pop(0)
-        if elem.string != None:
+        if not isinstance(elem, Comment) and elem.string is not None:
             words.append(elem.string)
         if hasattr(elem, 'contents'):
-            elems += elem.contents
+            elems = elem.contents + elems
     res = '\n'.join(words)
+    res = '\n'.join(w.strip() for w in res.split())
     while '\n\n' in res:
         res = res.replace('\n\n', '\n')
     return res
@@ -29,7 +30,7 @@ def striptext(text):
 
 def read_doc(fn):
     with open(fn, 'r') as f:
-        text = f.read()
+        text = f.read().decode('utf-8')
         return striptext(text)
 
 
